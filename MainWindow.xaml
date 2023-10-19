@@ -1,0 +1,24 @@
+﻿<Window x:Class="RTBSaveLoad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RTBSaveLoad"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <RichTextBox x:Name="rtx" Grid.ColumnSpan="3" Background="AliceBlue"></RichTextBox>
+        <Button Grid.Row="1" x:Name="btnDefault" Click="btnDefault_Click">读取默认</Button>
+        <Button Grid.Row="1" Grid.Column="1" x:Name="btnSave" Click="btnSave_Click">保存</Button>
+        <Button Grid.Row="1" Grid.Column="2" x:Name="btnLoad" Click="btnLoad_Click">读取</Button>
+    </Grid>
+</Window>
