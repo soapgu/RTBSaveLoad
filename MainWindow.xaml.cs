@@ -89,5 +89,20 @@ namespace RTBSaveLoad
 
             }
         }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            string rtfContent = string.Empty;
+            using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
+            {
+                TextRange textRangeMerge = new TextRange(rtx.Document.ContentStart, rtx.Document.ContentEnd);
+                textRangeMerge.Save(memoryStream, DataFormats.Rtf);
+                rtfContent = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+            //RTF一定要用Encoding.Default否则乱码
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("{0}.rtf", "导出RTF文档"));
+            File.WriteAllText(filePath, rtfContent, Encoding.Default);
+            MessageBox.Show(string.Format("导出成功：{0}", filePath));
+        }
     }
 }
